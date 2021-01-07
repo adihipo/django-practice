@@ -1,2 +1,4 @@
+from django.http import HttpResponse
+
 def home(request):
-    return 'Hello'
+    return HttpResponse('Hello')
