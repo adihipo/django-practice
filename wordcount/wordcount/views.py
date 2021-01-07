@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from collections import Counter
 
 
 def home(request):
@@ -7,5 +8,7 @@ def home(request):
 
 def count(request):
     fulltext = request.GET['fulltext']
-    count_of_words = len(fulltext.split())
-    return render(request, 'count.html', {'fulltext': fulltext, 'count': count_of_words})
+    wordlist = fulltext.split()
+    count_of_words = len(wordlist)
+    worddict = {x: wordlist.count(x) for x in wordlist}
+    return render(request, 'count.html', {'fulltext': fulltext, 'count': count_of_words, 'worddict': worddict.items()})

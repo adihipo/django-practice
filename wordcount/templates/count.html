@@ -3,3 +3,12 @@
 
 <p>{{ fulltext }}</p>
 <p>How many words? <strong>{{ count }}</strong></p>
+
+<p>Further count analysis:</p>
+
+{% for word, count in worddict %}
+{{ word }}
+<br>
+{{ count }}
+<br>
+{% endfor %}
