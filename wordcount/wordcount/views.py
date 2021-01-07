@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from collections import Counter
+import operator
 
 
 def home(request):
@@ -11,4 +11,6 @@ def count(request):
     wordlist = fulltext.split()
     count_of_words = len(wordlist)
     worddict = {x: wordlist.count(x) for x in wordlist}
-    return render(request, 'count.html', {'fulltext': fulltext, 'count': count_of_words, 'worddict': worddict.items()})
+    sorteddict = sorted(worddict.items(), key=operator.itemgetter(1), reverse=True)
+
+    return render(request, 'count.html', {'fulltext': fulltext, 'count': count_of_words, 'sorteddict': sorteddict})
