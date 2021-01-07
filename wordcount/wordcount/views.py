@@ -6,6 +6,10 @@ def home(request):
     return render(request, 'home.html', {'hi': 'by ÁDÁM GYARMATI'})
 
 
+def about(request):
+    return render(request, 'about.html', {'hi': 'by ÁDÁM GYARMATI'})
+
+
 def count(request):
     fulltext = request.GET['fulltext']
     wordlist = fulltext.split()

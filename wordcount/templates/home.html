@@ -1,5 +1,7 @@
 <h1>HI! THIS IS THE WORD COUNT PAGE</h1>
 <h3>{{ hi }}</h3>
+<a href="{% url 'about' %}">About</a>
+<br><br>
 
 <form action="{% url 'count' %}">
     <textarea cols="40" row="5" name="fulltext"></textarea>
