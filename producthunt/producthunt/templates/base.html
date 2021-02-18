@@ -12,6 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
 
     <style>
       #avatar {
@@ -57,6 +58,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
                         {% if user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
                         <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Log out</a>
                         <form id="logout" method="POST" action="{% url 'logout' %}">
                             {% csrf_token %}
